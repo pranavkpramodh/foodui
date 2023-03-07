@@ -1,0 +1,53 @@
+<app-header></app-header>
+
+
+<section class="" style="background-color: black; color: white; padding-top: 100px; ">
+    <div class="container px-4 px-lg-5 mt-5">
+        <div class="row gx-4 gx-lg-5 row-cols-1 row-cols-md-3 row-cols-xl-4 justify-content-center">
+            <!-- <div class="col mb-5" *ngFor="let product of allProducts | filter:'men' :'title'"> -->
+
+            <div   class="col mb-5" *ngFor="let product of allproducts | filter:searchTerm :'title'">
+                <div class="card h-100 card-hover bg-dark" style="box-shadow: 1px 0px 25px #3e4d0a3d;">
+                    <!-- Product image-->
+                    <div class="img-container"><img (click)="cardshow()" (click)="showfood(product)" class="card-img-top" [src]="product.image" alt="..." /></div>
+                    <!-- Product details-->
+                    <div class="card-body p-4">
+                        <div class="text-center">
+                            <!-- Product name-->
+                            <h5 class="fw-bolder" (click)="cardshow()" (click)="showfood(product)" >{{product.item }} ({{product.origin}})</h5>
+                            <!-- Product price--> 
+                            {{product.price}}
+                        </div>
+                    </div>
+                    <!-- Product actions-->
+                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
+                        <div class="text-center">
+                            <button class="btn btn-outline-dark mt-auto ml-3 text-danger" (click)="addtowishlist(product)"><i class="fa-sharp fa-solid fa-heart " style="color: white;"></i></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div> 
+    </div>
+    <div class="book" style="position: fixed; top: 110px; left: 50%;  transform: translate(-50%);" *ngIf="showcard">
+
+        <div class="closs" style="position: absolute; z-index: 9; right: 20px; top: 20px;">
+            <i (click)="cardshow()" class="fa-solid fa-xmark" style="font-size: 28px;"></i>
+        </div>
+
+
+        <div class="card" style="max-width: 30rem; min-width: 30rem; min-height: 40rem; background-color: rgb(0, 0, 0);">
+            <img style="min-width: 300px; min-height: 300px; " class="container w-100 py-5" [src]="foodData.image" alt="Card image cap">
+            <div class="card-body">
+                <h6 style="color: rgb(0, 211, 63); position: absolute; top: 280px; left: 50%;transform: translate(-50%); "> {{foodData.item}} ({{foodData.price | currency:"INR"}}) </h6>
+              <p class="card-text px-4">{{foodData.description}}</p>
+
+              <button style="position: absolute; right: 100px; bottom: 40px; background-color: rgb(0, 135, 40);" class="btn  text-light " (click)="addtowishlist(foodData)">Add to Favourite</button>
+              <button style="position: absolute; right: 30px; bottom: 40px; background-color: rgb(0, 158, 47);" class="btn  text-light" (click)="order(foodData)">Buy</button>
+            </div>
+          </div>
+    </div>
+</section>
+ 
+

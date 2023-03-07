@@ -1,0 +1,25 @@
+<app-header></app-header>
+
+<div class="order-container" style="color: white; background-color: black; padding-top: 90px;">
+
+    <div class="order-row" *ngFor="let order of myOrders">
+        <div class="left"><img src="{{order.image}}" alt=""></div>
+
+        <div class="rightt">
+            <div>
+                <h1> {{order.item}}</h1>
+            </div>
+            <div>
+                <h3> Order Placed By {{order.name}}</h3>
+            </div>
+            <div>
+                <p>Address: {{order.address}}</p>
+            </div>
+            <div>
+                <p>Phone: {{order.phone}}</p>
+            </div>
+        </div>
+        
+    </div>
+
+</div><br>

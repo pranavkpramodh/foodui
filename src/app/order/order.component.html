@@ -1,0 +1,62 @@
+
+
+<div style="width: 100%; height: 100vh; display: flex; justify-content: center; background-color: rgba(0, 0, 0, 0.99); ">
+    <form [formGroup]="orderForm" style="width: 50%; padding-top: 100px;">
+
+        <div class="form-group row p-3">
+            <label for="" class="col-sm-2 col-form-label text-light">Name</label>
+            <div class="col-sm-10">
+            <input formControlName="name" type="text" class="form-control" id="" placeholder="Name">
+            <div  *ngIf="this.orderForm.get('name')?.errors && this.orderForm.get('name')?.touched" style="color: rgb(255, 54, 54); position: absolute;">enter valid name</div>
+
+          </div>
+        </div>
+        <div class="form-group row p-3">
+            <label for="" class="col-sm-2 col-form-label text-light">Phone</label>
+            <div class="col-sm-10">
+            <input type="text" formControlName="phone" class="form-control" id="" placeholder="Phone">
+            <div  *ngIf="this.orderForm.get('phone')?.errors && this.orderForm.get('phone')?.touched" style="color: rgb(255, 54, 54); position: absolute;">invalid phone number</div>
+
+          </div>
+        </div>
+
+        <div class="form-group row p-3">
+          <label for="" class="col-sm-2 col-form-label text-light">Email</label>
+          <div class="col-sm-10">
+            <input type="email" formControlName="email" class="form-control" id="" placeholder="Email">
+            <div  *ngIf="this.orderForm.get('email')?.errors && this.orderForm.get('email')?.touched" style="color: rgb(255, 54, 54); position: absolute;">invalid email</div>
+
+          </div>
+        </div>
+
+        <div class="form-group row p-3">
+          <label for="" class="col-sm-2 col-form-label text-light">Address</label>
+          <div class="col-sm-10">
+            <textarea formControlName="address" class="form-control" id="exampleFormControlTextarea1" rows="3" placeholder="Address"></textarea>
+            <div  *ngIf="this.orderForm.get('address')?.errors && this.orderForm.get('address')?.touched" style="color: rgb(255, 54, 54); position: absolute;">invalid address</div>
+
+        </div>
+        </div>
+
+        <div class="form-group row p-3" style="position: relative;">
+            <label for="" class="col-sm-2 col-form-label text-light">Pin Code</label>
+            <div class="col-sm-10">
+              <input type="text" formControlName="pincode" class="form-control" id="" placeholder="Pin Code">
+              <div  *ngIf="this.orderForm.get('pincode')?.errors && this.orderForm.get('pincode')?.touched" style="color: rgb(255, 54, 54); position: absolute;">invalid pincode</div>
+            </div>
+          </div>
+
+        <div class="form-group row p-3">
+            <label for="" class="col-sm-2 col-form-label text-light">Enter Location</label>
+            <div class="col-sm-10">
+              <input type="text" formControlName="location" class="form-control" id="" placeholder="Enter Location">
+              <div  *ngIf="this.orderForm.get('location')?.errors && this.orderForm.get('location')?.touched" style="color: rgb(255, 54, 54); position: absolute;">invalid location</div>
+            </div>
+          </div>
+
+          <button class="btn ms-3 me-2 mt-3" style="background-color: rgba(255, 21, 21, 0.851); color: white; float: right;" routerLink="/home">Close</button>
+          <button class="btn mt-3" style="background-color: rgb(0, 197, 36); color: white; float: right" (click)="placeorder()">Place Order</button>
+
+      </form>
+
+</div>
